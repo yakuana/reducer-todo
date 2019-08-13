@@ -17,7 +17,7 @@ export const initialState = {
         {
             item: 'Look for a new backpack',
             completed: false,
-            id: 3892987589
+            id: 38929875
         }, 
 
     ]
@@ -37,22 +37,23 @@ export const TodoReducer = (state, action) => {
                     }
                 ]
             }
-            
-        case "REMOVE_TODO":
-                return {
-                    todoList: state.todoList.filter(todoObject => todoObject.id !== action.id)
-                }
 
-        case "TOGGLE_COMPLETED":
+        case "TOGGLE_COMPLETE":
             return {
                 todoList: state.todoList.map(todoObject => {
-                    if (todoObject.id === action.id) {
-                      return {
-                          ...todoObject, 
-                          completed: !todoObject.completed
-                      }
+
+                    if (todoObject.id === action.payload.id) {
+                        // console.log("payload object", action.payload, action.payload.completed);
+                        // console.log("todoObject", todoObject); 
+                        // console.log({...action.payload, completed: true})
+                        return {
+                            ...action.payload, 
+                            completed: !todoObject.completed
+                        }
+                    } else {
+                        return todoObject
                     }
-                    return todoObject   
+                       
                 })
             }
     }

@@ -1,8 +1,6 @@
 import React, { useState, useReducer } from 'react';
 
 import { initialState, TodoReducer } from "../reducers/TodoReducer.js";
-import TodoCard from './TodoCard.js';
-
 
 const TodoForm = () => {
     const [state, dispatch] = useReducer(TodoReducer, initialState); 
@@ -32,7 +30,17 @@ const TodoForm = () => {
                 </button>
             </div>
 
-            {state.todoList.map(task => <TodoCard key={task.id} props={task}/>)}
+            {state.todoList.map(task =>  { 
+                return (
+                    <div>
+                        {task.completed === true ? (
+                            <h2 className="add-line" onClick={() => {dispatch({ type: 'TOGGLE_COMPLETE', payload: task})}}>{task.item}</h2>
+                        ) : (
+                            <h2 onClick={() => {dispatch({ type: 'TOGGLE_COMPLETE', payload: task})}}>{task.item}</h2>
+                        )}
+                    </div>
+                )}
+            )}
         </div>
     );
 
