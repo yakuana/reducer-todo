@@ -27,10 +27,9 @@ export const intitailState = {
 export const TodoReducer = (state, action) => {
     switch(action.type) {
         case "ADD_TODO":
-            return {
-                ...state, 
+            return { 
                 todoList: [
-                    ...todoList, 
+                    ...state.todoList, 
                     {
                         item: action.item,
                         completed: false, 
@@ -41,13 +40,11 @@ export const TodoReducer = (state, action) => {
             
         case "REMOVE_TODO":
                 return {
-                    ...state,
                     todoList: state.todoList.filter(todoObject => todoObject.id !== action.id)
                 }
 
         case "TOGGLE_COMPLETED":
             return {
-                ...state,
                 todoList: state.todoList.map(todoObject => {
                     if (todoObject.id === action.id) {
                       return {
