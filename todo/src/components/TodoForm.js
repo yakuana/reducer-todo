@@ -10,7 +10,7 @@ const TodoForm = () => {
     const [newTodo, setNewTodo] = useState();
 
     const handleChange = event => {
-        setNewTitleText(event.target.value);
+        setNewTodo(event.target.value);
     };
     
 
@@ -37,3 +37,5 @@ const TodoForm = () => {
     );
 
 }
+
+export default TodoForm; 

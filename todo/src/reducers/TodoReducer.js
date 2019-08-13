@@ -1,6 +1,6 @@
 // Todo List Reducer 
 
-export const intitailState = { 
+export const initialState = { 
     todoList: [
         {
             item: 'Learn about reducers',
@@ -31,7 +31,7 @@ export const TodoReducer = (state, action) => {
                 todoList: [
                     ...state.todoList, 
                     {
-                        item: action.item,
+                        item: action.payload,
                         completed: false, 
                         id: Date.now()
                     }
