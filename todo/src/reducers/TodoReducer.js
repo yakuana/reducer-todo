@@ -56,6 +56,12 @@ export const TodoReducer = (state, action) => {
                        
                 })
             }
+        case "REMOVE_ITEM": 
+            return {
+                todoList: state.todoList.filter(todoObject =>
+                    todoObject.id !== action.payload.id 
+                )
+            }
     }
    
 };

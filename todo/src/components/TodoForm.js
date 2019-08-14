@@ -36,8 +36,10 @@ const TodoForm = () => {
                         {task.completed === true ? (
                             <h2 className="add-line" onClick={() => {dispatch({ type: 'TOGGLE_COMPLETE', payload: task})}}>{task.item}</h2>
                         ) : (
-                            <h2 onClick={() => {dispatch({ type: 'TOGGLE_COMPLETE', payload: task})}}>{task.item}</h2>
+                            <h2 onClick={() => {dispatch({ type: 'TOGGLE_COMPLETE', payload: task})}}>{task.item}</h2>      
                         )}
+
+                        <button onClick={() => {dispatch({ type: 'REMOVE_ITEM', payload: task})}}>REMOVE</button>
                     </div>
                 )}
             )}
