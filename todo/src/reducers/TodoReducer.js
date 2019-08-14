@@ -62,6 +62,13 @@ export const TodoReducer = (state, action) => {
                     todoObject.id !== action.payload.id 
                 )
             }
+        case "REMOVE_COMPLETED":
+            return {
+                todoList: state.todoList.filter(todoObject => 
+                    todoObject.completed !== true
+                )
+            }
+        default: return state 
     }
    
 };

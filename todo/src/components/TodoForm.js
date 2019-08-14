@@ -30,6 +30,8 @@ const TodoForm = () => {
                 </button>
             </div>
 
+            <button onClick={() => {dispatch({ type: 'REMOVE_COMPLETED',})}}>Remove Completed</button>
+
             {state.todoList.map(task =>  { 
                 return (
                     <div>
@@ -43,6 +45,7 @@ const TodoForm = () => {
                     </div>
                 )}
             )}
+
         </div>
     );
 
